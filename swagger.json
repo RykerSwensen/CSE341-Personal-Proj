@@ -38,30 +38,24 @@
             {
               "name": "newUser",
               "in": "body",
-              "description": ".",
-              "required": true,
               "schema": {
                 "type": "object",
                 "properties": {
+                  
                   "username": {
-                    "type": "string",
-                    "example": "string"
+                    "example": "any"
                   },
                   "password": {
-                    "type": "string",
-                    "example": "string"
+                    "example": "any"
                   },
                   "displayName": {
-                    "type": "string",
-                    "example": "string"
+                    "example": "any"
                   },
                   "email": {
-                    "type": "string",
-                    "example": "string"
+                    "example": "any"
                   },
                   "joinDate": {
-                    "type": "string",
-                    "example": "string"
+                    "example": "any"
                   }
                 }
               }
@@ -104,36 +98,28 @@
               "name": "username",
               "in": "path",
               "required": true,
-              "type": "string",
-              "description": "Username of the user to update."
+              "type": "string"
             },
             {
               "name": "updatedUser",
               "in": "body",
-              "description": "Updated user.",
-              "required": false,
               "schema": {
                 "type": "object",
                 "properties": {
                   "username": {
-                    "type": "string",
-                    "example": "string"
+                    "example": "any"
                   },
                   "password": {
-                    "type": "string",
-                    "example": "string"
+                    "example": "any"
                   },
                   "displayName": {
-                    "type": "string",
-                    "example": "string"
+                    "example": "any"
                   },
                   "email": {
-                    "type": "string",
-                    "example": "string"
+                    "example": "any"
                   },
                   "joinDate": {
-                    "type": "string",
-                    "example": "string"
+                    "example": "any"
                   }
                 }
               }
