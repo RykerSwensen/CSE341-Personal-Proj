@@ -29,8 +29,7 @@ export const create = (req: Request, res: Response): void => {
 
 
 export const getAll = (req: Request, res: Response): void => {
-  // GET ALL USERS
-// #swagger.description = 'Endpoint to fetch all users.'
+ 
   try {
     User.find({})
       .then((data: object) => {
@@ -64,30 +63,7 @@ export const getUser = (req: Request, res: Response): void => {
 };
 
 export const updateUser = async (req: Request, res: Response) => {
-  // UPDATE USER
-// #swagger.description = 'Endpoint to update an existing user by username.'
-/* #swagger.parameters['username'] = {
-  in: 'path',
-  description: 'Username of the user to update.',
-  required: true,
-  type: 'string'
-} */
-/* #swagger.parameters['updatedUser'] = {
-  in: 'body',
-  description: 'Updated user data.',
-  required: false,
-  type: 'object',
-  schema: {
-    password: 'string',
-    displayName: 'string',
-    email: 'string',
-    phoneNumber: 'string',
-    currentLocation: 'string',
-    openToNewOpportunities: false,
-    profileIsPublic: true,
-    theme_name: 'string',
-  }
-} */
+  
   try {
     const username = req.params.username;
 
@@ -111,7 +87,6 @@ export const updateUser = async (req: Request, res: Response) => {
       return;
     }
 
-    // Update user properties here
     user.username = username;
     user.password = password;
     user.displayName = req.body.displayName;
@@ -120,21 +95,14 @@ export const updateUser = async (req: Request, res: Response) => {
 
     await user.save();
     res.status(204).send();
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  
   } catch (err: any) {
     res.status(500).json({ message: err.message || 'Some error occurred while processing your request.' });
   }
 };
 
 export const deleteUser = async (req: Request, res: Response): Promise<void> => {
-  // DELETE USER
-// #swagger.description = 'Endpoint to delete a user by username.'
-/* #swagger.parameters['username'] = {
-  in: 'path',
-  description: 'Username of the user to delete.',
-  required: true,
-  type: 'string'
-} */
+ 
   try {
     const username = req.params.username;
     if (!username) {
@@ -150,7 +118,7 @@ export const deleteUser = async (req: Request, res: Response): Promise<void> => 
     }
     
     res.status(204).send();
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  
   } catch (err: any) {
     res.status(500).json({ message: err.message || 'Some error occurred while deleting the user.' });
   }
