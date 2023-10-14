@@ -8,17 +8,7 @@
   "host": "cse341-pokemon-collector.onrender.com",
   "basePath": "/",
   "schemes": ["https"],
-  "paths": {
-    "/api-docs": {
-      "get": {
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      }
-    },
+
     "paths": {
       "/api-docs": {
         "get": {
@@ -339,5 +329,3 @@
       }
     }
   }
-
-}
