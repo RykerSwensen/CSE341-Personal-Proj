@@ -1,0 +1,23 @@
+[
+    {
+     "username": "Ryker12345",
+     "password": "12345",
+     "displayName": "Ryker180",
+     "email": "rykerswensen@gmail.com",
+     "joinDate": "10/14/2023"
+   },
+   {
+    "username": "Hotdogfan12345",
+    "password": "56789",
+    "displayName": "Eagle5",
+    "email": "test@gmail.com",
+    "joinDate": "10/14/2023"
+   },
+   {
+    "username": "NintendoFan12345",
+    "password": "98765",
+    "displayName": "GregTomato",
+    "email": "test2@gmail.com",
+    "joinDate": "10/14/2023"
+   }
+]
