@@ -90,8 +90,8 @@ export const updateUser = async (req: Request, res: Response) => {
     user.username = username;
     user.password = password;
     user.displayName = req.body.displayName;
-    user.info = req.body.info;
-    user.profile = req.body.profile;
+    user.email = req.body.email;
+    user.joinDate = req.body.joinDate;
 
     await user.save();
     res.status(204).send();

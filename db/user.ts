@@ -1,7 +1,7 @@
 import mongoose, { Document, Schema } from 'mongoose';
 
 
-interface IUsers extends Document {
+interface IUser extends Document {
   username: string;
   password: string;
   displayName: string;
@@ -9,7 +9,7 @@ interface IUsers extends Document {
   joinDate: string;
 }
 
-const UsersSchema: Schema = new Schema({
+const UserSchema: Schema = new Schema({
   username: { type: String },
   password: { type: String },
   displayName: { type: String },
@@ -17,4 +17,4 @@ const UsersSchema: Schema = new Schema({
   joinDate: { type: String },
 });
 
-export default mongoose.model<IUsers>('Users', UsersSchema);
+export default mongoose.model<IUser>('User', UserSchema);
