@@ -9,7 +9,6 @@ interface IUsers extends Document {
   joinDate: string;
 }
 
-// Define the schema
 const UsersSchema: Schema = new Schema({
   username: { type: String },
   password: { type: String },
@@ -18,5 +17,4 @@ const UsersSchema: Schema = new Schema({
   joinDate: { type: String },
 });
 
-// Create the model and export it
 export default mongoose.model<IUsers>('Users', UsersSchema);

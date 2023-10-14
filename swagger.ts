@@ -6,7 +6,7 @@ const doc = {
   },
     //host: 'localhost:8080',
     //schemes: ['http']
-  host: 'https://cse341-pokemon-collector.onrender.com',
+  host: 'cse341-pokemon-collector.onrender.com',
   schemes: ['https']
 };
 
