@@ -5,7 +5,7 @@
     "description": "Web Application for Pokemon TCG Collectors",
     "version": "1.0.0"
   },
-  "host": "cse341-project2-kl.onrender.com",
+  "host": "https://cse341-pokemon-collector.onrender.com",
   "basePath": "/",
   "schemes": ["https"],
   "paths": {
