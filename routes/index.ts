@@ -5,6 +5,6 @@ import userRouter from './users';
 const baseRouter = express.Router();
 
 baseRouter.use('/', s);
-baseRouter.use('/users',userRouter ); 
+baseRouter.use('/user',userRouter ); 
 
 export default baseRouter;
