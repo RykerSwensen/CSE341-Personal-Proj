@@ -1,0 +1,70 @@
+// LOCALHOST GET ALL USERS
+GET http://localhost:8080/user/ HTTP/1.1
+
+###
+// LOCALHOST GET USER BY USERNAME
+GET http://localhost:8080/user/Ryker12345 HTTP/1.1
+
+### LOCALHOST CREATE USER
+POST http://localhost:8080/user HTTP/1.1
+content-type: application/json
+
+{
+    "username": "Frogan",
+    "password": "22222",
+    "displayName": "TwitchFrog",
+    "email": "test5@gmail.com",
+    "joinDate": "10/14/2023"
+  }
+
+### LOCALHOST UPDATE USER BY USERNAME
+PUT http://localhost:8080/user/Frogan HTTP/1.1
+content-type: application/json
+
+{
+    "username": "Frogan",
+    "password": "11111",
+    "displayName": "TwitchFrog",
+    "email": "test5@gmail.com",
+    "joinDate": "10/14/2023"
+  }
+
+### DELETE USER BY USERNAME
+DELETE http://localhost:8080/user/Frogan HTTP/1.1
+
+###
+// RENDER GET ALL USERS
+GET https://cse341-pokemon-collector.onrender.com/user HTTP/1.1
+
+###
+// RENDER GET USER BY USERNAME
+GET https://cse341-pokemon-collector.onrender.com/user/Ryker HTTP/1.1
+
+### RENDER CREATE USER
+POST https://cse341-pokemon-collector.onrender.com/user HTTP/1.1
+content-type: application/json
+
+{
+    "username": "Frogan",
+    "password": "22222",
+    "displayName": "TwitchFrog",
+    "email": "test5@gmail.com",
+    "joinDate": "10/14/2023"
+  }
+
+
+### RENDER UPDATE USER BY USERNAME
+PUT https://cse341-pokemon-collector.onrender.com/user HTTP/1.1
+content-type: application/json
+
+{
+    "username": "Frogan",
+    "password": "11111",
+    "displayName": "TwitchFrog",
+    "email": "test5@gmail.com",
+    "joinDate": "10/14/2023"
+  }
+
+
+### RENDER DELETE USER BY USERNAME
+DELETE https://cse341-pokemon-collector.onrender.com/user/Frogan HTTP/1.1
