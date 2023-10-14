@@ -13,7 +13,7 @@ export const create = (req: Request, res: Response): void => {
     user.save()
       .then((data: object) => {
         console.log("Data saved: ", data);
-        res.status(200).send(data);
+        res.status(201).send(data);
       })
       .catch((err: Error) => {
         console.error("Error in saving: ", err);
@@ -73,20 +73,7 @@ export const updateUser = async (req: Request, res: Response) => {
     }
 
     const password = req.body.password;
-    
-
-    if (password.error) {
-      res.status(400).send({ message: password.error });
-      return;
-    }
-
     const user = await User.findOne({ username }).exec();
-
-    if (!user) {
-      res.status(404).send({ message: 'User not found' });
-      return;
-    }
-
     user.username = username;
     user.password = password;
     user.displayName = req.body.displayName;
@@ -105,19 +92,9 @@ export const deleteUser = async (req: Request, res: Response): Promise<void> => 
  
   try {
     const username = req.params.username;
-    if (!username) {
-      res.status(400).json({ message: 'Invalid Username Supplied' });
-      return;
-    }
-
     const result = await User.deleteOne({ username }).exec();
-
-    if (result.deletedCount === 0) {
-      res.status(404).json({ message: 'User not found' });
-      return;
-    }
     
-    res.status(204).send();
+    res.status(200).send();
   
   } catch (err: any) {
     res.status(500).json({ message: err.message || 'Some error occurred while deleting the user.' });
