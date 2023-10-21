@@ -113,16 +113,21 @@ export const updateUser = async (req: Request, res: Response) => {
 };
 
 export const deleteUser = async (req: Request, res: Response): Promise<void> => {
-  const username = req.params.username;
-  const response = await mongodb.getDb().db().collection('users').deleteUser({username: username}, true)
-  console.log(response);
-  if(response.deletedCount > 0) {
-    res.status(200).send({ message: 'User deleted successfully' });
+  try {
+    const username = req.params.username;
+    if (!username) {
+      res.status(400).json({ message: 'Invalid Username Supplied' });
+      return;
+    }
+    const result = await User.deleteOne({ username }).exec();
+    if (result.deletedCount === 0) {
+      res.status(404).json({ message: 'User not found' });
+      return;
+    }
+    res.status(204).send();
+  } catch (err: any) {
+    res.status(500).json({ message: err.message || 'Some error occurred while deleting the user.' });
   }
-  else {
-    res.status(404).send({ message: 'User not found' });
-  }
- 
 };
 
 export default {
