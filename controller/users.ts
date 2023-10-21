@@ -62,29 +62,20 @@ export const getAll = (req: Request, res: Response): void => {
 
 export const getUser = (req: Request, res: Response): void => {
   try {
-   const username = req.params.username;
-
-   if (!username) {
-    res.status(400).send({ message: 'Invalid Username Supplied' });
-    return;
-  }
-
-    User.find({ username })
-      .then((data: object) => {
-        if (!data)
-          res.status(404).send({ message: 'Not found user with username ' + username });
-        else
-          res.status(200).send(data);
-      })
-      .catch((err: { message: object }) => {
-        res.status(500).send({
-          message: err.message || 'Some error occurred while retrieving the user.'
-        });
-      });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-};
+    const username = req.params.username;
+     User.find({ username })
+       .then((data: object) => {
+         res.status(200).send(data);
+       })
+       .catch((err: { message: object }) => {
+         res.status(500).send({
+           message: err.message || 'Some error occurred while retrieving the user.'
+         });
+       });
+   } catch (err) {
+     res.status(500).json(err);
+   }
+ };
 
 export const updateUser = async (req: Request, res: Response) => {
   
