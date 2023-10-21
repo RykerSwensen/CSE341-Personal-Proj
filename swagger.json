@@ -38,24 +38,30 @@
             {
               "name": "newUser",
               "in": "body",
+              "required": true,
               "schema": {
                 "type": "object",
                 "properties": {
                   
                   "username": {
-                    "example": "any"
+                    "type": "string",
+                    "example": "Username must be 8-10 characters in length, at least one lowercase letter, one uppercase letter, one numeric digit, and one special character."
                   },
                   "password": {
-                    "example": "any"
+                    "type": "string",
+                    "example": "string"
                   },
                   "displayName": {
-                    "example": "any"
+                    "type": "string",
+                    "example": "string"
                   },
                   "email": {
-                    "example": "any"
+                    "type": "string",
+                    "example": "string"
                   },
                   "joinDate": {
-                    "example": "any"
+                    "type": "string",
+                    "example": "string"
                   }
                 }
               }
@@ -106,20 +112,21 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "username": {
-                    "example": "any"
-                  },
                   "password": {
-                    "example": "any"
+                    "type": "string",
+                    "example": "string"
                   },
                   "displayName": {
-                    "example": "any"
+                    "type": "string",
+                    "example": "string"
                   },
                   "email": {
-                    "example": "any"
+                    "type": "string",
+                    "example": "string"
                   },
                   "joinDate": {
-                    "example": "any"
+                    "type": "string",
+                    "example": "string"
                   }
                 }
               }
