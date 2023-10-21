@@ -114,7 +114,7 @@ export const updateUser = async (req: Request, res: Response) => {
 
 export const deleteUser = async (req: Request, res: Response): Promise<void> => {
   const username = req.params.username;
-  const response = await mongodb.getDb().db('user').collection('users').deleteUser({username: username}, true)
+  const response = await mongodb.getDb().db().collection('users').deleteUser({username: username}, true)
   console.log(response);
   if(response.deletedCount > 0) {
     res.status(200).send({ message: 'User deleted successfully' });
