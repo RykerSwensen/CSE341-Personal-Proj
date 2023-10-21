@@ -10,6 +10,6 @@ const complexityOptions = {
   requirementCount: 6,
 };
 
-export const validate = (passwordToCheck: string) => {
+export const passwordPass = (passwordToCheck: string) => {
   return JoiPasswordComplexity(complexityOptions, 'Password').validate(passwordToCheck);
 };

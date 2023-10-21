@@ -14,7 +14,7 @@ export const create = (req: Request, res: Response): void => {
       return;
     }
 
-    const usernameValid = usernameValidator.validate(username);
+    const usernameValid = usernameValidator.passwordPass(username);
 
     if (usernameValid.error) {
       res.status(400).send({ message: usernameValid.error});
