@@ -112,6 +112,23 @@ export const updateUser = async (req: Request, res: Response) => {
 };
 
 export const deleteUser = async (req: Request, res: Response): Promise<void> => {
+  const username = req.params.username;
+  if(req.header(username) === username) {
+    User.deleteUser({username: username})
+      .then((data: any) => {
+        if (data.deletedCount) {
+          res.status(200).send({ message: 'User deleted successfully' });
+        }
+        else {
+          res.status(404).send({ message: 'User not found' });
+        }
+      })
+      .catch((err: { message: object }) => {
+        res.status(500).send({
+          message: err.message || 'Some error occurred while deleting the user.'
+        });
+      });
+  }
  
   try {
     const username = req.params.username;
