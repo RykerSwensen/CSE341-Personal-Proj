@@ -70,7 +70,10 @@ export const getUser = (req: Request, res: Response): void => {
 
     User.find({ username })
       .then((data: object) => {
-        res.status(200).send(data);
+        if (!data)
+          res.status(404).send({ message: 'Not found user with username ' + username });
+        else
+          res.status(200).send(data);
       })
       .catch((err: { message: object }) => {
         res.status(500).send({
