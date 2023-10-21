@@ -3,6 +3,7 @@ import db from '../db';
 const mongodb = require('../db/connect');
 const User = db.user;
 import * as usernameValidator from '../utilities/usernameValidation';
+import { object } from 'joi';
 
 export const create = (req: Request, res: Response): void => {
 
@@ -65,7 +66,7 @@ export const getUser = (req: Request, res: Response): void => {
     const username = req.params.username;
      User.find({ username })
        .then((data: object) => {
-        if(data === null) res.status(404).send({ message: 'User not found' });
+        if(username === null) res.status(404).send({ message: 'User not found' });
         else  {res.status(200).send(data); console.log(data);}
        })
        .catch((err: { message: object }) => {
