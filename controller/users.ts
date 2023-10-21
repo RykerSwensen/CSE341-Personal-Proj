@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import db from '../db';
+const mongodb = require('../db/connect');
 const User = db.user;
 import * as usernameValidator from '../utilities/usernameValidation';
 
@@ -113,32 +114,15 @@ export const updateUser = async (req: Request, res: Response) => {
 
 export const deleteUser = async (req: Request, res: Response): Promise<void> => {
   const username = req.params.username;
-  if(req.header(username) === username) {
-    User.deleteUser({username: username})
-      .then((data: any) => {
-        if (data.deletedCount) {
-          res.status(200).send({ message: 'User deleted successfully' });
-        }
-        else {
-          res.status(404).send({ message: 'User not found' });
-        }
-      })
-      .catch((err: { message: object }) => {
-        res.status(500).send({
-          message: err.message || 'Some error occurred while deleting the user.'
-        });
-      });
+  const response = await mongodb.getDb().db('user').collection('users').deleteUser({username: username}, true)
+  console.log(response);
+  if(response.deletedCount > 0) {
+    res.status(200).send({ message: 'User deleted successfully' });
+  }
+  else {
+    res.status(404).send({ message: 'User not found' });
   }
  
-  try {
-    const username = req.params.username;
-    const result = await User.deleteOne({ username }).exec();
-    
-    res.status(200).send();
-  
-  } catch (err: any) {
-    res.status(500).json({ message: err.message || 'Some error occurred while deleting the user.' });
-  }
 };
 
 export default {
