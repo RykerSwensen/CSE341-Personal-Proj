@@ -44,24 +44,19 @@
                 "properties": {
                   
                   "username": {
-                    "type": "string",
-                    "example": "Username must be 8-10 characters in length, at least one lowercase letter, one uppercase letter, one numeric digit, and one special character."
+                    "example": "any"
                   },
                   "password": {
-                    "type": "string",
-                    "example": "string"
+                    "example": "any"
                   },
                   "displayName": {
-                    "type": "string",
-                    "example": "string"
+                    "example": "any"
                   },
                   "email": {
-                    "type": "string",
-                    "example": "string"
+                    "example": "any"
                   },
                   "joinDate": {
-                    "type": "string",
-                    "example": "string"
+                    "example": "any"
                   }
                 }
               }
@@ -112,21 +107,20 @@
               "schema": {
                 "type": "object",
                 "properties": {
+                  "username": {
+                    "example": "any"
+                  },
                   "password": {
-                    "type": "string",
-                    "example": "string"
+                    "example": "any"
                   },
                   "displayName": {
-                    "type": "string",
-                    "example": "string"
+                    "example": "any"
                   },
                   "email": {
-                    "type": "string",
-                    "example": "string"
+                    "example": "any"
                   },
                   "joinDate": {
-                    "type": "string",
-                    "example": "string"
+                    "example": "any"
                   }
                 }
               }
