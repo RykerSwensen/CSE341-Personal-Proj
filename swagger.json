@@ -78,7 +78,7 @@
           "parameters": [
             {
               "name": "username",
-              "in": "path",
+              "in": "header",
               "required": true,
               "type": "string"
             }
@@ -103,7 +103,7 @@
             },
             {
               "name": "updatedUser",
-              "in": "body",
+              "in": "header",
               "schema": {
                 "type": "object",
                 "properties": {
@@ -140,7 +140,7 @@
           "parameters": [
             {
               "name": "username",
-              "in": "path",
+              "in": "header",
               "required": true,
               "type": "string",
               "description": "user to delete."
