@@ -65,7 +65,8 @@ export const getUser = (req: Request, res: Response): void => {
     const username = req.params.username;
      User.find({ username })
        .then((data: object) => {
-         res.status(200).send(data);
+        if(!data) res.status(404).send({ message: 'User not found' });
+        else  {res.status(200).send(data); console.log(data);}
        })
        .catch((err: { message: object }) => {
          res.status(500).send({
