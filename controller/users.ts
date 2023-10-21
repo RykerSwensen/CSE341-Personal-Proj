@@ -1,12 +1,26 @@
 import { Request, Response } from 'express';
 import db from '../db';
 const User = db.user;
-
+import * as usernameValidator from '../utilities/usernameValidation';
 
 export const create = (req: Request, res: Response): void => {
 
   try {
     const { username, password } = req.body;
+
+    // Error checking for empty fields
+    if (!username || !password) {
+      res.status(400).send({ message: 'Content cannot be empty!' });
+      return;
+    }
+
+    const usernameValid = usernameValidator.validate(username);
+
+    if (usernameValid.error) {
+      res.status(400).send({ message: usernameValid.error});
+      return;
+    }
+
 
     const user = new User(req.body);
 
@@ -48,6 +62,12 @@ export const getAll = (req: Request, res: Response): void => {
 export const getUser = (req: Request, res: Response): void => {
   try {
    const username = req.params.username;
+
+   if (!username) {
+    res.status(400).send({ message: 'Invalid Username Supplied' });
+    return;
+  }
+
     User.find({ username })
       .then((data: object) => {
         res.status(200).send(data);
