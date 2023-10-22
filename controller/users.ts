@@ -126,7 +126,7 @@ export const deleteUser = async (req: Request, res: Response): Promise<void> => 
       res.status(404).json({ message: 'User not found' });
       return;
     }
-    res.status(204).send();
+    res.status(200).send();
   } catch (err: any) {
     res.status(500).json({ message: err.message || 'Some error occurred while deleting the user.' });
   }
