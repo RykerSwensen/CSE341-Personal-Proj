@@ -64,12 +64,21 @@ export const getAll = (req: Request, res: Response): void => {
 export const getUser = (req: Request, res: Response): void => {
   try {
     const username = req.params.username;
+    
      User.find({ username })
        .then((data: object) => {
-        if(username === null) res.status(404).send({ message: 'User not found' });
-        else  {res.status(200).send(data); console.log(data);}
-       })
-       .catch((err: { message: object }) => {
+        
+        if(Object.keys(username).length==0){
+          console.log("no username found");
+          res.status(404).send({ message: 'User not found' });
+          return
+        }else{
+          console.log("username found");
+          res.status(200).send(data); console.log(data);
+          return
+    }
+  })
+  .catch((err: { message: object }) => {
          res.status(500).send({
            message: err.message || 'Some error occurred while retrieving the user.'
          });
