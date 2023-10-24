@@ -1,6 +1,9 @@
 import express, { Request, Response, NextFunction } from 'express';
 import bodyParser from 'body-parser';
 import mainRouter from './routes';
+
+// Going to use Auth0 for authentication. It seems like a great way to get started with authentication, 
+// especially for a small scale application. I have used JWT in the past, so I wanted to learn something new.
 import {auth, requiresAuth} from 'express-openid-connect';
 import dotenv from 'dotenv';
 
