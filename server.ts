@@ -4,6 +4,7 @@ import mainRouter from './routes';
 
 // Going to use Auth0 for authentication. It seems like a great way to get started with authentication, 
 // especially for a small scale application. I have used JWT in the past, so I wanted to learn something new.
+// Login works, but redirection is still having issues. I am going to try to get it working, but I may have to
 import {auth, requiresAuth} from 'express-openid-connect';
 import dotenv from 'dotenv';
 
