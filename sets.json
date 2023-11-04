@@ -1,16 +1,16 @@
 [
     {
-    "setName": "Base Set",
+    "setName": "Base",
     "startDate": "10/20/1996",
     "endDate": "01/01/2000"
    },
    {
-    "setName": "Sword & Shield Base Set",
+    "setName": "Sword & Shield",
     "startDate": "02/07/2020",
-    "endDate": "01/01/2023"
+    "endDate": "NA"
    },
    {
-    "setName": "Scarlet & Violet Base Set",
+    "setName": "Scarlet & Violet",
     "startDate": "03/31/2023",
     "endDate": "NA"
    }
