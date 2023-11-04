@@ -1,17 +1,11 @@
-// Branch in Progress for Sets
+import express from 'express';
+import setsController from '../controller/sets'
 
-// const express = require('express');
-// const router = express.Router();
-// const { employeeValidation, validate } = require('../middleware/validation');
+const setsRouter = express.Router();
+    setsRouter.get('/', setsController.getAll);
+    setsRouter.get('/:setname', setsController.getSets);
+    setsRouter.post('/', setsController.create);
+    setsRouter.put('/:setname', setsController.updateSets);
+    setsRouter.delete('/:setname', setsController.deleteSets);
 
-// const usersController = require('../controllers/employees');
-// const { isAuthenticated } = require('../middleware/authenticate');
-
-// router.get('/', usersController.getAllEmployees);
-// router.get('/:id', usersController.getSingleEmployee);
-
-// router.post('/', isAuthenticated, employeeValidation, validate, usersController.createEmployee);
-// router.put('/:id', isAuthenticated, employeeValidation, validate, usersController.updateEmployee);
-// router.delete('/:id', isAuthenticated, usersController.deleteEmployee);
-
-// module.exports = router;
+export default setsRouter;
